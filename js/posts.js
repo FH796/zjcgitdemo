@@ -18,7 +18,9 @@
        { type: 'code', lang: 'js', text: '...' }   代码块
    ============================================ */
 
-var POSTS = [
+// 显式挂载到 window，供页面脚本（main.js）共享；
+// 避免用顶层 var 隐式污染全局命名空间
+window.POSTS = [
   {
     id: 'build-blog',
     title: '从零搭建一个纯 HTML + CSS + JS 的个人博客',

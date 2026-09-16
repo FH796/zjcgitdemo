@@ -5,14 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>我的技术博客</title>
   <meta name="description" content="记录技术、分享成长 —— 一个用纯 HTML + CSS + JS 搭建的个人技术博客。">
-  <script>
-    // 在渲染前设置主题，避免闪烁
-    (function () {
-      var t = localStorage.getItem('theme');
-      if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-      document.documentElement.setAttribute('data-theme', t);
-    })();
-  </script>
+  <script src="js/theme-init.js"></script>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>

@@ -26,6 +26,16 @@ function readTime(post) {
   return Math.max(1, Math.round(chars / 400));
 }
 
+// 汇总文章所有可搜索文本（标题 / 摘要 / 标签 / 正文）
+function searchText(post) {
+  var parts = [post.title, post.excerpt].concat(post.tags);
+  post.content.forEach(function (block) {
+    if (block.text) parts.push(block.text);
+    if (block.items) parts = parts.concat(block.items);
+  });
+  return parts.join(' ').toLowerCase();
+}
+
 /* ---------- 主题切换 ---------- */
 function initTheme() {
   var btn = document.getElementById('theme-toggle');
@@ -34,6 +44,8 @@ function initTheme() {
   function refreshIcon() {
     var dark = document.documentElement.getAttribute('data-theme') === 'dark';
     btn.textContent = dark ? '☀️' : '🌙';
+    btn.setAttribute('aria-pressed', dark ? 'true' : 'false');
+    btn.setAttribute('aria-label', dark ? '切换到亮色主题' : '切换到暗色主题');
   }
 
   refreshIcon();
@@ -90,8 +102,7 @@ function renderPosts(filter) {
     // 关键词匹配（标题 / 摘要 / 标签）
     if (filter.keyword) {
       var kw = filter.keyword.toLowerCase();
-      var haystack = (post.title + ' ' + post.excerpt + ' ' + post.tags.join(' ')).toLowerCase();
-      if (haystack.indexOf(kw) === -1) return false;
+      if (searchText(post).indexOf(kw) === -1) return false;
     }
     return true;
   });
@@ -138,7 +149,7 @@ function renderBlocks(blocks) {
       case 'quote':
         return '<blockquote><p>' + renderInline(block.text) + '</p></blockquote>';
       case 'list':
-        return '<ul>' + block.items.map(function (i) {
+        return '<ul>' + (block.items || []).map(function (i) {
           return '<li>' + renderInline(i) + '</li>';
         }).join('') + '</ul>';
       case 'code':

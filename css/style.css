@@ -540,3 +540,14 @@ code {
     padding: 28px 22px;
   }
 }
+
+/* ============================================
+   减弱动效偏好
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+}

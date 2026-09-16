@@ -10,7 +10,7 @@
 - **方式二**：在项目目录启动一个静态服务器（推荐，路径更规范）：
 
   ```bash
-  cd tech-blog
+  cd zjcgitdemo
   python3 -m http.server 8000
   ```
 
@@ -19,15 +19,18 @@
 ## 目录结构
 
 ```
-tech-blog/
+zjcgitdemo/
 ├── index.html        # 首页：文章列表 + 搜索 + 分类筛选
 ├── post.html         # 文章详情页（通过 ?id=xxx 加载）
 ├── about.html        # 关于页
 ├── css/
 │   └── style.css     # 全部样式（含明暗主题）
-└── js/
-    ├── posts.js      # 文章数据（写新文章改这里）
-    └── main.js       # 渲染 / 搜索 / 主题切换逻辑
+├── js/
+│   ├── theme-init.js # 主题预置（防闪烁）
+│   ├── posts.js      # 文章数据（写新文章改这里）
+│   └── main.js       # 渲染 / 搜索 / 主题切换逻辑
+└── algorithms/
+    └── sorting.js    # 三种排序算法（冒泡 / 快速 / 归并，可 Node 运行）
 ```
 
 ## 如何写新文章
@@ -61,9 +64,17 @@ tech-blog/
 - **关于页信息**：修改 `about.html`
 - **明暗主题**：右上角按钮切换，自动记忆偏好，默认跟随系统
 
+## 排序算法
+
+`algorithms/sorting.js` 是独立的算法练习，实现了三种经典排序算法：冒泡排序、快速排序（三数取中 + 小区间插入排序优化）、归并排序（O(n) 辅助空间）。可直接用 Node 运行自测：
+
+```bash
+node algorithms/sorting.js
+```
+
 ## 部署
 
-把整个 `tech-blog` 目录推到任意静态托管即可，例如：
+把整个 `zjcgitdemo` 目录推到任意静态托管即可，例如：
 
 - GitHub Pages
 - Vercel / Netlify（直接拖拽目录）
