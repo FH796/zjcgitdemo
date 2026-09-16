@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文章 - 我的技术博客</title>
+  <script>
+    (function () {
+      var t = localStorage.getItem('theme');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">⌨️ 我的技术博客</a>
+      <nav class="site-nav">
+        <a href="index.html">首页</a>
+        <a href="about.html">关于</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="切换主题">🌙</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container post-container">
+    <a href="index.html" class="back-link">← 返回首页</a>
+    <article id="post-content"></article>
+    <p class="empty-tip" id="empty-tip" hidden>未找到这篇文章，可能链接有误。</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 我的技术博客 · 用纯 HTML + CSS + JS 构建</p>
+    </div>
+  </footer>
+
+  <script src="js/posts.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

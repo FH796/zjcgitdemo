@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的技术博客</title>
+  <meta name="description" content="记录技术、分享成长 —— 一个用纯 HTML + CSS + JS 搭建的个人技术博客。">
+  <script>
+    // 在渲染前设置主题，避免闪烁
+    (function () {
+      var t = localStorage.getItem('theme');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">⌨️ 我的技术博客</a>
+      <nav class="site-nav">
+        <a href="index.html" class="active">首页</a>
+        <a href="about.html">关于</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="切换主题">🌙</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>记录技术，分享成长</h1>
+      <p>专注于 Web 开发、编程实践与工程效率的简单博客。</p>
+    </section>
+
+    <section class="search-bar">
+      <input type="search" id="search-input" placeholder="搜索文章标题、标签或内容…" autocomplete="off">
+    </section>
+
+    <section class="category-filter" id="category-filter"></section>
+
+    <section class="post-list" id="post-list"></section>
+    <p class="empty-tip" id="empty-tip" hidden>没有找到匹配的文章 😕</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 我的技术博客 · 用纯 HTML + CSS + JS 构建</p>
+    </div>
+  </footer>
+
+  <script src="js/posts.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

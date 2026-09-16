@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>关于 - 我的技术博客</title>
+  <script>
+    (function () {
+      var t = localStorage.getItem('theme');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">⌨️ 我的技术博客</a>
+      <nav class="site-nav">
+        <a href="index.html">首页</a>
+        <a href="about.html" class="active">关于</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="切换主题">🌙</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container about-container">
+    <div class="about-card">
+      <div class="avatar">👨‍💻</div>
+      <h1>你好，我是一名开发者</h1>
+      <p>
+        这是一个用纯 <code>HTML5</code> + <code>CSS</code> + <code>JavaScript</code> 搭建的个人技术博客，
+        没有使用任何框架或构建工具。它的目标很简单：记录我在编程路上的学习与思考。
+      </p>
+      <p>
+        我主要关注 Web 前端开发、工程效率以及软件工程实践。如果你对某个话题感兴趣，
+        欢迎通过博客里的文章和我交流。
+      </p>
+      <h2>技术栈</h2>
+      <div class="skill-tags">
+        <span class="skill-tag">HTML5</span>
+        <span class="skill-tag">CSS3</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">Node.js</span>
+        <span class="skill-tag">Git</span>
+      </div>
+      <h2>联系我</h2>
+      <p>邮箱：<a href="mailto:hello@example.com">hello@example.com</a>（示例，请自行替换）</p>
+      <p>GitHub：<a href="https://github.com" target="_blank" rel="noopener">github.com/yourname</a></p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 我的技术博客 · 用纯 HTML + CSS + JS 构建</p>
+    </div>
+  </footer>
+
+  <script src="js/posts.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
